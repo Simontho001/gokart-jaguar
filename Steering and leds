@@ -1,0 +1,50 @@
+//code
+    #include <CanJaguar.h>
+    #include <SoftwareSerial.h>
+    #include "FastLED.h"
+Servo myservo;  // create servo object to control a servo
+
+int potpin = 0;  // analog pin used to connect the potentiometer
+int sval;    // variable to read the value from the ana
+
+   CRGB leds[1];
+Int Thresholdval = 500
+        
+        }
+    int RX = 2;
+    int TX = 3;
+        //these defines the rx and tx pins for the uart converter. I used  3 for tx and 2 for rx
+    CanJaguar jagnet;
+    int gamemode = 1;//this needs to be here and set too 1
+    //otherwise the jags will think the robot is disabled
+    void setup(){
+myservo.attach(9);
+FastLED.addLeds<NEOPIXEL, 6>(leds, 1);
+         jagnet.Initialize();
+  
+         jagnet.SendConstants(id,PMODE,P,I,D);//id is id of jaguar. P I D are the constants to send.
+                //For mode your choices are PMODE,SMODE,IMODE. Position,Speed,Current respectivly.Must be capitalized!
+
+                jagnet.ConfigPIDsensor(id,PMODE,POTENTIOMETER,value);//for mode choices are PMODE or SMODE
+                //for sensor type options are ENCODER INV_ENCODER QUAD_ENCODER POTENTIOMETER 
+                //INV_ENCODER means inverting encoder
+                //for value this is turns of potentiometer, or lines per turn on encoder.
+
+void loop() {
+Int aval = analogRead(A0)
+  jagnet.Setposition(id,aval,start point);//position is measured in rotations
+              //*you must configure PID settings aswell as encoder or potentiometer settings.
+              //the analog value will be from a pwm to analog circuit that connects the arduino to the rf reciver 
+if (aval > Thresholdval) {
+    leds[0] = CRGB::White; FastLED.show();
+  } else {
+    leds[0] = CRGB::Black; FastLED.show();
+  }
+//If (aval > 20) {
+//activate breaks 
+    
+
+
+}
+
+Sent from my iPad
